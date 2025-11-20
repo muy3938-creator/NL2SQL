@@ -10,9 +10,9 @@ from .selection import ConfidenceSelector
 from .utils import get_schema_info
 
 class DeepEyeSQL:
-    def __init__(self, db_path: str, openai_api_key: str):
+    def __init__(self, db_path: str, openai_api_key: str,openai_base_url: str,model: str):
         self.db_path = db_path
-        self.llm = ChatOpenAI(model="gpt-4o", temperature=0, api_key=openai_api_key)
+        self.llm = ChatOpenAI(model=model, temperature=0, api_key=openai_api_key,base_url=openai_base_url)
         self.schema = get_schema_info(db_path)
         
         # Initialize components
